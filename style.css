@@ -1,0 +1,314 @@
+:root{
+  --ink:#15151B;--tekst:#3A3B44;--szary:#6B6E78;--linia:#DDE0E6;
+  --tlo2:#EFF1F5;--biel:#fff;
+  --akcja:#3300FF;--akcja-h:#2600C4;
+  --c1:#6600FF;--c2:#3300FF;--c3:#0099FF;--c4:#66CC00;--c5:#FFCC00;--c6:#FF9900;--c7:#FF0000;
+  --r:6px;--hdr:72px;
+  --font:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 17px/1.6 var(--font);color:var(--tekst);background:var(--biel);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--akcja)}
+h1,h2,h3{font-family:var(--font);color:var(--ink);margin:0;line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(30px,3.2vw,46px);font-weight:800}
+h3{font-size:21px;font-weight:700;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{width:min(1320px,calc(100% - 64px));margin:0 auto}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--c3);outline-offset:2px}
+svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* przyciski */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--akcja);color:#fff;border:0;border-radius:var(--r);font:700 16px/1 var(--font);padding:14px 20px;text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}
+.btn:hover{background:var(--akcja-h)}
+.btn:active{transform:translateY(1px)}
+.btn-duzy{font-size:18px;padding:19px 28px}
+.btn-pelny{width:100%}
+.btn-jasny{background:#fff;color:var(--ink)}
+.btn-jasny:hover{background:var(--c5)}
+
+/* pasek kontrolny druku - kolory kategorii z menu superalbum.pl */
+.pasek-kontrolny{display:flex;height:5px}
+.pasek-kontrolny i{flex:1}
+.pasek-kontrolny i:nth-child(1){background:var(--c1)}.pasek-kontrolny i:nth-child(2){background:var(--c2)}
+.pasek-kontrolny i:nth-child(3){background:var(--c3)}.pasek-kontrolny i:nth-child(4){background:var(--c4)}
+.pasek-kontrolny i:nth-child(5){background:var(--c5)}.pasek-kontrolny i:nth-child(6){background:var(--c6)}
+.pasek-kontrolny i:nth-child(7){background:var(--c7)}
+
+/* nagłówek */
+.top{position:sticky;top:0;z-index:50;background:#fff}
+.top-in{display:flex;align-items:center;gap:28px;height:67px}
+.logo img{height:42px;width:auto}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:16px;padding:10px 12px;border-radius:var(--r)}
+.nav a:hover{background:var(--tlo2)}
+.top-tel{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:800;font-size:19px;line-height:1.1;white-space:nowrap}
+.top-tel small{display:block;font-weight:500;font-size:12px;color:var(--szary)}
+.top-tel svg{width:22px;height:22px;color:var(--akcja)}
+.btn-top{white-space:nowrap}
+.burger{display:none;background:none;border:0;width:44px;height:44px;padding:10px;cursor:pointer;margin-right:-8px}
+.burger i{display:block;height:2.5px;background:var(--ink);border-radius:2px;margin:5px 0;transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.menu-mob{position:fixed;left:0;right:0;top:var(--mm-top,72px);bottom:0;background:#fff;z-index:49;display:flex;flex-direction:column;padding:8px 16px 24px;overflow:auto}
+.menu-mob nav a{display:flex;align-items:center;gap:14px;padding:15px 4px;border-bottom:1px solid var(--linia);color:var(--ink);text-decoration:none;font-size:21px;font-weight:700}
+.menu-mob nav i{width:14px;height:14px;background:var(--k);flex:none}
+.mm-dol{margin-top:auto;padding-top:24px}
+.mm-dol p{margin:12px 0 0;text-align:center;color:var(--szary);font-size:15px;line-height:1.5}
+
+/* pierwszy ekran: tekst + mozaika zdjęć (jak litery logo) */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);min-height:calc(100svh - var(--hdr));}
+.hero-in{grid-column:1;grid-row:1;display:flex;align-items:center;justify-content:flex-start;padding:40px 56px 40px max(32px,calc((100vw - 1320px) / 2))}
+.hero-tekst{width:min(640px,100%)}
+.hero-gdzie{font-size:16px;color:var(--szary);margin-bottom:22px}
+.hero h1{font-size:clamp(46px,4.5vw,78px);font-weight:800;letter-spacing:-.035em;line-height:1.0;margin-bottom:26px}
+.lead{font-size:20px;line-height:1.55;color:var(--tekst);margin-bottom:34px;max-width:34em}
+.btn-duzy svg{width:22px;height:22px}
+.hero-dost{margin:22px 0 0;font-size:15px;color:var(--szary)}
+.hero-foto{grid-column:2;grid-row:1;position:relative;min-width:0;overflow:hidden;background:#fff}
+.hero-moz{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero-karta{position:absolute;left:28px;bottom:28px;display:flex;align-items:center;gap:16px;background:#fff;color:var(--ink);text-decoration:none;padding:12px 22px 12px 12px;border-radius:var(--r);box-shadow:0 8px 30px rgba(21,21,27,.22);max-width:calc(100% - 56px)}
+.hero-karta img{width:58px;height:86px;object-fit:cover;object-position:50% 0;flex:none}
+.hero-karta span{display:flex;flex-direction:column;font-size:16px;line-height:1.3;font-weight:600}
+.hero-karta small{font-size:12px;font-weight:700;color:#fff;background:var(--c7);align-self:flex-start;padding:2px 7px;margin-bottom:5px}
+.hero-karta b{font-size:24px;font-weight:800;margin-top:2px}
+.hero-karta:hover{box-shadow:0 10px 34px rgba(21,21,27,.32)}
+.hero-karta s,.kal-ceny s,.tabela s{font-weight:500;font-size:.72em;color:var(--szary);margin-left:4px}
+
+/* sekcje */
+.sekcja{padding:104px 0}
+.naglowek{max-width:760px;margin-bottom:48px}
+.naglowek h2{margin-bottom:16px}
+.naglowek p{font-size:18px;color:var(--szary);margin:0}
+
+/* karty produktów */
+.karty{display:grid;gap:24px}
+.karty-duze{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:24px}
+.karty-male{grid-template-columns:repeat(3,minmax(0,1fr))}
+.karta{background:#fff;border:1px solid var(--linia);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.karta-tresc{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.karta h3{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.karta h3 i{width:14px;height:14px;background:var(--k);flex:none}
+.karta p{margin-bottom:12px}
+.fakty{list-style:none;margin:0 0 14px;padding:0;font-size:15px;color:var(--szary)}
+.fakty li{padding:3px 0}
+.cena{margin:auto 0 0!important;padding-top:14px;border-top:1px solid var(--linia);font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.cena small{font-size:15px;font-weight:500;color:var(--szary);letter-spacing:0}
+
+.galeria{position:relative;background:#fff;border-bottom:4px solid var(--k)}
+.g-tor{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;touch-action:pan-x pan-y;user-select:none}
+.g-tor::-webkit-scrollbar{display:none}
+.g-tor.ciagnie{cursor:grabbing;scroll-snap-type:none}
+.g-tor img{flex:0 0 100%;width:100%;aspect-ratio:4/3;object-fit:contain;padding:22px;scroll-snap-align:start;pointer-events:none;-webkit-user-drag:none}
+.karty-duze .g-tor img{aspect-ratio:16/10}
+.g-kropki{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px;pointer-events:none}
+.g-kropki i{width:8px;height:8px;background:rgba(21,21,27,.25)}
+.g-kropki i.on{background:var(--ink)}
+.g-str{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.15);display:grid;place-items:center;cursor:pointer;opacity:0;transition:opacity .15s;color:var(--ink)}
+.g-str.l{left:12px}.g-str.p{right:12px}
+.galeria:hover .g-str,.g-str:focus-visible{opacity:1}
+
+/* kalendarze */
+.kalendarze{background:var(--tlo2)}
+.kal-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+.kal-foto{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:6px;align-items:stretch}
+.kal-foto img{width:100%;height:100%;object-fit:cover;background:#fff}
+.kf-1{aspect-ratio:308/524;object-position:50% 0}
+.kf-2{object-position:30% 50%}
+.kal-tekst h2{margin-bottom:20px}
+.kal-tekst>p{font-size:18px}
+.kal-ceny{list-style:none;margin:28px 0 22px;padding:0;border-top:2px solid var(--ink)}
+.kal-ceny li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--linia);color:var(--ink)}
+.kal-ceny b{font-size:22px;font-weight:800;white-space:nowrap}
+.kal-ceny em{font-style:normal;font-size:13px;font-weight:700;color:#fff;background:var(--c7);padding:2px 7px;margin-left:6px;vertical-align:2px}
+.uwaga{font-size:15px;color:var(--szary);margin:0}
+
+/* jak zamówić - jedyna ciemna sekcja (czerń obrysu logo) */
+.jak{background:var(--ink);color:#C9CBD3}
+.jak h2{color:#fff;margin-bottom:28px}
+.jak-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:72px;align-items:center}
+.kroki{margin:0 0 36px;padding:0 0 0 1.4em;font-size:18px}
+.kroki li{padding:0 0 16px 6px}
+.kroki li::marker{color:var(--c5);font-weight:800}
+.kroki b{color:#fff}
+.kroki a{color:#fff}
+.jak-akcja{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.jak-akcja p{margin:0;font-size:15px;color:#9A9DA8}
+.jak-tel{margin:28px 0 0;font-size:15px;color:#9A9DA8}
+.jak-foto{margin:0}
+.jak-foto img{width:100%;border-radius:var(--r);background:#fff}
+.jak-foto figcaption{font-size:14px;color:#9A9DA8;margin-top:10px}
+
+/* cennik */
+.zakladki{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.zakladki button{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--linia);background:#fff;border-radius:var(--r);padding:12px 18px;font:600 16px/1 var(--font);color:var(--ink);cursor:pointer}
+.zakladki button i{width:11px;height:11px;background:var(--k)}
+.zakladki button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.cennik-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:64px;align-items:start}
+.tabela{border-top:2px solid var(--ink)}
+.dostawa{background:var(--tlo2);border-radius:var(--r);padding:30px 30px 26px;position:sticky;top:calc(var(--hdr) + 24px)}
+.dostawa h3{margin-bottom:14px}
+.dostawa dl{margin:0 0 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px}
+.dostawa dt{color:var(--tekst)}
+.dostawa dd{margin:0;font-weight:800;color:var(--ink);text-align:right}
+.dostawa p{font-size:15px;color:var(--szary);margin:0}
+.w{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n c" "o c";column-gap:24px;padding:16px 0;border-bottom:1px solid var(--linia)}
+.w span{grid-area:n;font-weight:600;color:var(--ink);font-size:18px}
+.w span em{font-style:normal;font-weight:400;color:var(--szary);font-size:15px;margin-left:6px}
+.w small{grid-area:o;color:var(--szary);font-size:15px}
+.w b{grid-area:c;align-self:center;font-size:24px;font-weight:800;color:var(--ink);white-space:nowrap;text-align:right}
+
+/* drukarnia */
+.drukarnia{background:var(--tlo2)}
+.druk-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:72px;align-items:center}
+.druk-foto{margin:0;display:grid;gap:6px}
+.druk-foto img{width:100%;aspect-ratio:8/3;object-fit:cover}
+.druk-tekst h2{margin-bottom:20px}
+.druk-tekst p{font-size:18px}
+
+/* kontakt */
+.kontakt-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px}
+.kontakt-dane h2{margin-bottom:24px}
+.kontakt-dane p{font-size:18px;color:var(--ink);margin-bottom:12px}
+.kontakt-dane a{color:var(--ink);text-decoration:none;font-weight:600}
+.kontakt-dane a:hover{color:var(--akcja)}
+.k-tel{display:flex;flex-wrap:wrap;gap:6px 24px}
+.k-tel a{font-size:28px;font-weight:800!important;letter-spacing:-.01em}
+.mapa{margin-top:24px;aspect-ratio:16/9;background:var(--tlo2);border-radius:var(--r);overflow:hidden}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.formularz{background:var(--tlo2);border-radius:var(--r);padding:36px;align-self:start}
+.formularz h3{font-size:26px;font-weight:800;margin-bottom:8px}
+.formularz>p{color:var(--szary);margin-bottom:22px}
+.formularz label{display:block;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:16px}
+.formularz input,.formularz select,.formularz textarea{display:block;width:100%;margin-top:6px;font:400 17px/1.4 var(--font);color:var(--ink);background:#fff;border:1px solid #C9CDD5;border-radius:var(--r);padding:13px 14px}
+.formularz textarea{resize:vertical}
+.formularz input:focus,.formularz select:focus,.formularz textarea:focus{outline:2px solid var(--akcja);outline-offset:0;border-color:var(--akcja)}
+.formularz .bl{border-color:var(--c7)}
+.form-info{font-size:13px;color:var(--szary);margin:12px 0 0;text-align:center}
+
+/* stopka: napis wypełniony mozaiką zdjęć - mechanika logo superalbum */
+.stopka{background:#fff;border-top:1px solid var(--linia);padding:56px 0 28px;font-size:15px;color:var(--szary)}
+.stopka-znak{margin:0 0 8px;font-weight:900;font-size:min(calc((100vw - 48px) / 6),214px);line-height:.86;letter-spacing:-.055em;text-align:center;background:url(img/mozaika.webp) center/auto 100% repeat-x;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;user-select:none;padding-bottom:.04em}
+.pasek-kontrolny.duzy{height:8px;margin-bottom:40px}
+.stopka-kol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-bottom:36px}
+.stopka-kol b{display:block;color:var(--ink);margin-bottom:6px}
+.stopka-kol p{margin:0;line-height:1.6}
+.stopka a{color:var(--ink)}
+.stopka-dol{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--linia)}
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit!important;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible;fill:currentColor;stroke:none}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}html{scroll-behavior:auto}}
+
+.mob-pasek{display:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:13px 18px;border-radius:var(--r);font-size:15px;opacity:0;transition:opacity .2s,transform .2s;z-index:80;max-width:calc(100% - 32px);pointer-events:none;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- szerokości ---------- */
+@media (max-width:1300px){
+  .top-tel small{display:none}
+  .nav a{padding:10px 9px;font-size:15px}
+  .top-in{gap:18px}
+}
+@media (max-width:1180px){
+  .nav{display:none}
+  .top-tel{margin-left:auto}
+  .burger{display:block}
+  .hero-in{padding:40px 40px 40px 32px}
+}
+@media (min-width:761px) and (max-height:820px){
+  .hero-karta{left:20px;bottom:20px}
+  .hero h1{font-size:clamp(44px,4.8vw,72px);margin-bottom:20px}
+  .lead{font-size:18px;margin-bottom:26px}
+  .hero-gdzie{margin-bottom:16px}
+  .btn-duzy{padding:17px 26px}
+}
+@media (max-width:1024px){
+  .kal-grid,.jak-grid,.druk-grid,.kontakt-grid{gap:48px}
+  .karty-male{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .karty-male .karta:last-child{grid-column:1/-1}
+}
+@media (max-width:900px){
+  .kal-grid,.jak-grid,.druk-grid,.kontakt-grid,.cennik-grid{grid-template-columns:minmax(0,1fr)}
+  .cennik-grid{gap:32px}
+  .dostawa{position:static}
+  .jak-foto{order:-1}
+  .karty-duze{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  :root{--hdr:62px}
+  body{font-size:16.5px}
+  .wrap{width:calc(100% - 32px)}
+  .top-in{height:57px;gap:10px}
+  .logo img{height:28px}
+  .btn-top{display:none}
+  .top-tel span{display:none}
+  .top-tel{width:44px;height:44px;justify-content:center;border-radius:50%}
+  .top-tel svg{width:24px;height:24px}
+  /* telefon: zdjęcia NAD tekstem, wolne miejsce wypełnia mozaika */
+  .hero{display:flex;flex-direction:column;min-height:calc(100svh - var(--hdr))}
+  .hero-foto{flex:1 1 auto;min-height:min(56vw,28svh);align-self:stretch;width:100%}
+  .hero-karta{left:12px;bottom:12px;padding:8px 14px 8px 8px;gap:10px;max-width:calc(100% - 24px)}
+  .hero-karta img{width:34px;height:50px}
+  .hero-karta span{font-size:13px}
+  .hero-karta small{display:none}
+  .hero-karta b{font-size:17px}
+  .hero-in{flex:0 0 auto;padding:20px 16px 22px;justify-content:flex-start}
+  .hero-gdzie{font-size:14px;margin-bottom:10px}
+  .hero h1{font-size:clamp(34px,10.4vw,46px);margin-bottom:12px}
+  .lead{font-size:17px;margin-bottom:18px}
+  .tylko-duzy{display:none}
+  .btn-duzy{width:100%;font-size:17px;padding:17px 20px}
+  .hero-dost{margin-top:12px;font-size:14px;text-align:center}
+  .sekcja{padding:64px 0}
+  .naglowek{margin-bottom:28px}
+  .naglowek p{font-size:16.5px}
+  .karty{gap:16px}
+  .karty-duze{margin-bottom:16px}
+  .karty-male{grid-template-columns:minmax(0,1fr)}
+  .karta-tresc{padding:20px 18px 20px}
+  .cena{font-size:27px}
+  .g-tor img,.karty-duze .g-tor img{aspect-ratio:16/10;padding:14px}
+  .g-str{display:none}
+  .kal-foto{grid-template-columns:minmax(0,.75fr) minmax(0,1fr)}
+  .kal-ceny b{font-size:19px}
+  .kal-ceny li{font-size:15.5px}
+  .kroki{font-size:16.5px}
+  .jak-akcja .btn{width:100%}
+  .jak-foto{display:none}
+  .druk-foto img+img{display:none}
+  .karty-male .karta-tresc p:not(.cena){font-size:15.5px}
+  .zakladki{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 22px;padding:0 16px;scrollbar-width:none}
+  .zakladki::-webkit-scrollbar{display:none}
+  .zakladki button{flex:none;padding:11px 14px;font-size:15px}
+  .w span{font-size:16px}
+  .w span em{display:block;margin:0}
+  .w b{font-size:20px}
+  .w small{font-size:14px}
+  .k-tel a{font-size:24px}
+  .formularz{padding:24px 18px}
+  .dostawa{padding:22px 18px}
+  .stopka{padding-bottom:96px}
+  .stopka-kol{grid-template-columns:minmax(0,1fr);gap:20px}
+  .pasek-kontrolny.duzy{margin-bottom:28px}
+  .mob-pasek{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -4px 18px rgba(0,0,0,.1);transform:translateY(110%);transition:transform .25s}
+  .mob-pasek.widac{transform:none}
+  .mob-pasek a{display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:var(--r);font-weight:700;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink)}
+  .mob-pasek .mp-cta{background:var(--akcja);color:#fff;border-color:var(--akcja)}
+}
+@media (max-width:760px) and (max-height:700px){
+  .hero h1{font-size:clamp(30px,9vw,38px)}
+  .lead{font-size:16px;margin-bottom:14px}
+  .hero-dost{display:none}
+  .hero-in{padding:16px 16px 18px}
+}
